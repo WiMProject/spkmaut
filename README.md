@@ -85,8 +85,8 @@ Pastikan Anda telah menginstall:
 ### 1️⃣ Clone Repository
 
 ```bash
-git clone https://github.com/username/SPK_MAUT.git
-cd SPK_MAUT
+git clone https://github.com/WiMProject/spkmaut.git
+cd spkmaut
 ```
 
 ### 2️⃣ Setup Backend (FastAPI)
