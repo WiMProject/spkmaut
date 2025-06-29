@@ -136,18 +136,24 @@ Frontend akan berjalan di: `http://localhost:5173`
 
 ---
 
-## 📱 Screenshots
+## 🎨 Fitur Tampilan
 
 <div align="center">
 
-### 🏠 Dashboard
-![Dashboard](https://via.placeholder.com/800x400/4F46E5/FFFFFF?text=Dashboard+SPK+MAUT)
+### ✨ **Modern UI Features**
 
-### 🧮 Kalkulasi MAUT
-![Kalkulasi](https://via.placeholder.com/800x400/059669/FFFFFF?text=Kalkulasi+MAUT)
+🏠 **Dashboard** - Hero slider dengan informasi MAUT dan navigasi intuitif  
+🧮 **Kalkulasi** - Form input kandidat dengan progress indicators real-time  
+⚙️ **Kriteria** - Manajemen kriteria dengan visual feedback dan validasi  
+📊 **Riwayat** - History management dengan tampilan hasil yang elegant  
+📱 **Responsive** - Optimal di desktop, tablet, dan mobile devices  
 
-### ⚙️ Setting Kriteria
-![Setting](https://via.placeholder.com/800x400/7C3AED/FFFFFF?text=Setting+Kriteria)
+### 🎯 **Design Highlights**
+- **Collapsible Sidebar** dengan curved design dan floating elements
+- **Blue-to-Purple Gradient** theme yang konsisten
+- **Glassmorphism Effects** untuk tampilan modern
+- **Smooth Animations** dan micro-interactions
+- **Toast Notifications** untuk user feedback
 
 </div>
 
