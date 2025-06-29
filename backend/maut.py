@@ -1,25 +1,17 @@
-CRITERIA_INFO = [
-    {"name": "IPK", "weight": 0.18, "type": "benefit"},
-    {"name": "Pengalaman Organisasi", "weight": 0.20, "type": "benefit"},
-    {"name": "Komunikasi", "weight": 0.12, "type": "benefit"},
-    {"name": "Visi Misi", "weight": 0.15, "type": "benefit"},
-    {"name": "Inisiatif", "weight": 0.10, "type": "benefit"},
-    {"name": "Penyelesaian Konflik", "weight": 0.10, "type": "benefit"},
-    {"name": "Ketidakhadiran", "weight": 0.10, "type": "cost"},
-    {"name": "Lama Studi", "weight": 0.05, "type": "cost"},
-]
+from database import get_criteria
 
 def calculate_maut_scores(candidates):
+    criteria_info = get_criteria()
     # * Validasi skor
     for c in candidates:
-        if len(c.scores) != len(CRITERIA_INFO):
+        if len(c.scores) != len(criteria_info):
             raise ValueError(f"Kandidat {c.name} memiliki jumlah skor tidak sesuai.")
 
     matrix = [c.scores for c in candidates]
-    weights_raw = [k["weight"] for k in CRITERIA_INFO]
+    weights_raw = [k["weight"] for k in criteria_info]
     total_weight = sum(weights_raw)
     weights = [w / total_weight for w in weights_raw]  # * normalisasi bobot
-    types = [k["type"] for k in CRITERIA_INFO]
+    types = [k["type"] for k in criteria_info]
 
     # * Normalisasi
     normalized_matrix = []
@@ -46,3 +38,4 @@ def calculate_maut_scores(candidates):
 
     results.sort(key=lambda x: x["score"], reverse=True)
     return results
+
