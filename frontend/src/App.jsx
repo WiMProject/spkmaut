@@ -44,7 +44,7 @@ function AppContent() {
 
   const fetchCriteria = async () => {
     try {
-      const res = await fetch("/api/criteria");
+      const res = await fetch("http://localhost:8000/api/criteria");
       const data = await res.json();
       setCriteria(data.criteria);
     } catch (e) {
@@ -57,7 +57,7 @@ function AppContent() {
       const token = localStorage.getItem('token');
       const headers = token ? { 'Authorization': `Bearer ${token}` } : {};
       
-      const res = await fetch("/api/history", {
+      const res = await fetch("http://localhost:8000/api/history", {
         headers
       });
       
@@ -173,7 +173,7 @@ function AppContent() {
   const deleteHistory = async (id) => {
     try {
       const token = localStorage.getItem('token');
-      const response = await fetch(`/api/history/${id}`, {
+      const response = await fetch(`http://localhost:8000/api/history/${id}`, {
         method: "DELETE",
         headers: {
           'Authorization': `Bearer ${token}`
