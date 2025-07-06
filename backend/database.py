@@ -12,7 +12,10 @@ def init_db():
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             name TEXT NOT NULL,
             weight REAL NOT NULL,
-            type TEXT NOT NULL CHECK(type IN ('benefit', 'cost'))
+            type TEXT NOT NULL CHECK(type IN ('benefit', 'cost')),
+            min_value REAL DEFAULT 0,
+            max_value REAL DEFAULT 100,
+            decimal BOOLEAN DEFAULT 1
         )
     ''')
     
@@ -31,16 +34,16 @@ def init_db():
     cursor.execute('SELECT COUNT(*) FROM criteria')
     if cursor.fetchone()[0] == 0:
         default_criteria = [
-            ("IPK", 0.18, "benefit"),
-            ("Pengalaman Organisasi", 0.20, "benefit"),
-            ("Komunikasi", 0.12, "benefit"),
-            ("Visi Misi", 0.15, "benefit"),
-            ("Inisiatif", 0.10, "benefit"),
-            ("Penyelesaian Konflik", 0.10, "benefit"),
-            ("Ketidakhadiran", 0.10, "cost"),
-            ("Lama Studi", 0.05, "cost"),
+            ("IPK", 0.18, "benefit", 0, 4.0, 1),
+            ("Pengalaman Organisasi", 0.20, "benefit", 1, 5, 0),
+            ("Komunikasi", 0.12, "benefit", 0, 100, 1),
+            ("Visi Misi", 0.15, "benefit", 0, 100, 1),
+            ("Inisiatif", 0.10, "benefit", 0, 100, 1),
+            ("Penyelesaian Konflik", 0.10, "benefit", 0, 100, 1),
+            ("Ketidakhadiran", 0.10, "cost", 0, 365, 0),
+            ("Lama Studi", 0.05, "cost", 3.5, 7.0, 1),
         ]
-        cursor.executemany('INSERT INTO criteria (name, weight, type) VALUES (?, ?, ?)', default_criteria)
+        cursor.executemany('INSERT INTO criteria (name, weight, type, min_value, max_value, decimal) VALUES (?, ?, ?, ?, ?, ?)', default_criteria)
     
     conn.commit()
     conn.close()
@@ -48,18 +51,18 @@ def init_db():
 def get_criteria():
     conn = sqlite3.connect('spk_maut.db')
     cursor = conn.cursor()
-    cursor.execute('SELECT id, name, weight, type FROM criteria ORDER BY id')
+    cursor.execute('SELECT id, name, weight, type, min_value, max_value, decimal FROM criteria ORDER BY id')
     criteria = cursor.fetchall()
     conn.close()
-    return [{"id": c[0], "name": c[1], "weight": c[2], "type": c[3]} for c in criteria]
+    return [{"id": c[0], "name": c[1], "weight": c[2], "type": c[3], "min_value": c[4], "max_value": c[5], "decimal": bool(c[6])} for c in criteria]
 
 def update_criteria(criteria_list):
     conn = sqlite3.connect('spk_maut.db')
     cursor = conn.cursor()
     cursor.execute('DELETE FROM criteria')
     for c in criteria_list:
-        cursor.execute('INSERT INTO criteria (name, weight, type) VALUES (?, ?, ?)', 
-                      (c["name"], c["weight"], c["type"]))
+        cursor.execute('INSERT INTO criteria (name, weight, type, min_value, max_value, decimal) VALUES (?, ?, ?, ?, ?, ?)', 
+                      (c["name"], c["weight"], c["type"], c.get("min_value", 0), c.get("max_value", 100), c.get("decimal", True)))
     conn.commit()
     conn.close()
 

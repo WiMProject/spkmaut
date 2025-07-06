@@ -1,4 +1,4 @@
-# 🎯 SPK MAUT - Sistem Pendukung Keputusan Pemilihan Ketua Organisasi
+# 🎯 SPK MAUT - Sistem Pendukung Keputusan Universal
 
 <div align="center">
 
@@ -6,8 +6,9 @@
 ![Python](https://img.shields.io/badge/Python-FastAPI-green?style=for-the-badge&logo=python)
 ![React](https://img.shields.io/badge/React-Vite-cyan?style=for-the-badge&logo=react)
 ![TailwindCSS](https://img.shields.io/badge/TailwindCSS-UI-purple?style=for-the-badge&logo=tailwindcss)
+![JWT](https://img.shields.io/badge/JWT-Auth-orange?style=for-the-badge&logo=jsonwebtokens)
 
-**Sistem Pendukung Keputusan menggunakan Multi-Attribute Utility Theory untuk pemilihan Ketua Organisasi Mahasiswa secara objektif dan terukur.**
+**Sistem Pendukung Keputusan Universal menggunakan Multi-Attribute Utility Theory dengan Authentication System dan Custom Value Ranges.**
 
 </div>
 
@@ -15,16 +16,18 @@
 
 ## 📋 Deskripsi Proyek
 
-Aplikasi web modern yang mengimplementasikan metode **MAUT (Multi-Attribute Utility Theory)** untuk membantu proses pengambilan keputusan dalam pemilihan Ketua Organisasi Mahasiswa. Sistem ini memberikan penilaian objektif berdasarkan kriteria yang telah ditentukan dengan interface yang user-friendly dan responsive.
+Aplikasi web modern yang mengimplementasikan metode **MAUT (Multi-Attribute Utility Theory)** untuk berbagai jenis pengambilan keputusan. Sistem ini dilengkapi dengan **authentication system**, **custom value ranges**, dan **freemium model** yang memungkinkan guest user mencoba fitur terbatas.
 
 ### ✨ Fitur Utama
 
-- 🎨 **Modern UI/UX** - Interface yang clean dan responsive dengan Tailwind CSS
-- 📊 **Dashboard Analytics** - Visualisasi hasil perhitungan MAUT
-- ⚙️ **Manajemen Kriteria** - Kelola kriteria dan bobot penilaian
-- 📈 **Real-time Calculation** - Perhitungan MAUT secara real-time
-- 📱 **Responsive Design** - Optimal di desktop, tablet, dan mobile
-- 💾 **Riwayat Kalkulasi** - Simpan dan lihat hasil perhitungan sebelumnya
+- 🔐 **Authentication System** - Login/Register dengan JWT token
+- 🎨 **Modern UI/UX** - Interface premium dengan glassmorphism effects
+- 📊 **Universal SPK** - Rentang nilai yang dapat dikustomisasi (1-5, 1-10, 1-100, decimal)
+- ⚙️ **Flexible Criteria** - Kelola kriteria dengan min/max values dan tipe data
+- 📈 **Real-time Calculation** - Perhitungan MAUT dengan validasi input
+- 🔒 **Freemium Model** - Guest dapat kalkulasi, hasil di-blur tanpa login
+- 💾 **Protected History** - Riwayat kalkulasi hanya untuk user yang login
+- 👑 **Admin Panel** - User management untuk administrator
 
 ---
 
@@ -39,17 +42,22 @@ Aplikasi web modern yang mengimplementasikan metode **MAUT (Multi-Attribute Util
 - **FastAPI** - Modern web framework
 - **Uvicorn** - ASGI server
 - **Pydantic** - Data validation
+- **JWT Authentication** - Secure token-based auth
+- **SQLite Database** - Local data storage
+- **Password Hashing** - SHA256 security
 - **CORS Middleware** - Cross-origin support
 
 </td>
 <td align="center" width="50%">
 
 ### 💻 Frontend
-- **React 18** - UI Library
-- **Vite** - Build tool
-- **Tailwind CSS** - Utility-first CSS
-- **JavaScript ES6+**
-- **Responsive Design**
+- **React 18** - UI Library with Hooks
+- **Vite** - Lightning fast build tool
+- **Tailwind CSS** - Utility-first CSS framework
+- **Context API** - State management for auth
+- **Local Storage** - Token persistence
+- **Responsive Design** - Mobile-first approach
+- **Glassmorphism UI** - Modern design effects
 
 </td>
 </tr>
@@ -70,6 +78,23 @@ Aplikasi web modern yang mengimplementasikan metode **MAUT (Multi-Attribute Util
 | 7   | **Jumlah Ketidakhadiran**          | **Cost**      | Numerik            | 0 – tak terbatas (hari) | 0.10            |
 | 8   | **Lama Masa Studi**                | **Cost**      | Numerik            | 3.5 – 7.0 (tahun)       | 0.05            |
 |     | **Total**                          |               |                    |                         | **1.00**        |
+
+---
+
+## 🔐 Authentication System
+
+### 👤 User Roles & Access
+
+| Role | Dashboard | Kalkulasi | Hasil | History | Criteria | Admin |
+|------|-----------|-----------|-------|---------|----------|-------|
+| **Guest** | ✅ | ✅ | ❌ (Blur) | ❌ (Blur) | ✅ | ❌ |
+| **User** | ✅ | ✅ | ✅ | ✅ | ✅ | ❌ |
+| **Admin** | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+
+### 🎯 Freemium Model
+- **Guest Users**: Dapat melakukan kalkulasi, hasil di-blur dengan overlay login
+- **Registered Users**: Akses penuh ke semua fitur, history tersimpan
+- **Admin Users**: User management dan kontrol sistem
 
 ---
 
@@ -133,29 +158,23 @@ Frontend akan berjalan di: `http://localhost:5173`
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:8000
 - **API Documentation**: http://localhost:8000/docs
+- **Default Admin**: admin@spkmaut.com / admin123
 
 ---
 
-## 🎨 Fitur Tampilan
+## 🌟 Universal SPK Features
 
-<div align="center">
+### 🎛️ Custom Value Ranges
+- **Flexible Min/Max**: Set custom ranges (1-5, 1-10, 0-100, etc.)
+- **Decimal Support**: Enable/disable decimal values per criteria
+- **Dynamic Validation**: Input validation based on custom ranges
+- **Visual Feedback**: Progress bars adapted to custom ranges
 
-### ✨ **Modern UI Features**
-
-🏠 **Dashboard** - Hero slider dengan informasi MAUT dan navigasi intuitif  
-🧮 **Kalkulasi** - Form input kandidat dengan progress indicators real-time  
-⚙️ **Kriteria** - Manajemen kriteria dengan visual feedback dan validasi  
-📊 **Riwayat** - History management dengan tampilan hasil yang elegant  
-📱 **Responsive** - Optimal di desktop, tablet, dan mobile devices  
-
-### 🎯 **Design Highlights**
-- **Collapsible Sidebar** dengan curved design dan floating elements
-- **Blue-to-Purple Gradient** theme yang konsisten
-- **Glassmorphism Effects** untuk tampilan modern
-- **Smooth Animations** dan micro-interactions
-- **Toast Notifications** untuk user feedback
-
-</div>
+### 📊 Criteria Management
+- **Benefit/Cost Types**: Support for both benefit and cost criteria
+- **Weight Distribution**: Visual weight management with progress bars
+- **Real-time Preview**: Instant feedback on criteria changes
+- **Export/Import**: Save and load criteria configurations
 
 ---
 
@@ -163,14 +182,18 @@ Frontend akan berjalan di: `http://localhost:5173`
 
 ### 🔗 Backend Endpoints
 
-| Method | Endpoint | Deskripsi |
-|--------|----------|-----------|
-| `GET` | `/` | Health check |
-| `POST` | `/api/maut` | Kalkulasi MAUT |
-| `GET` | `/api/criteria` | Get kriteria |
-| `PUT` | `/api/criteria` | Update kriteria |
-| `GET` | `/api/history` | Get riwayat |
-| `DELETE` | `/api/history/{id}` | Hapus riwayat |
+| Method | Endpoint | Auth Required | Deskripsi |
+|--------|----------|---------------|-----------|
+| `GET` | `/` | ❌ | Health check |
+| `POST` | `/api/maut` | ❌ | Kalkulasi MAUT |
+| `GET` | `/api/criteria` | ❌ | Get kriteria |
+| `PUT` | `/api/criteria` | ❌ | Update kriteria |
+| `GET` | `/api/history` | ✅ | Get riwayat |
+| `DELETE` | `/api/history/{id}` | ✅ | Hapus riwayat |
+| `POST` | `/api/auth/register` | ❌ | User registration |
+| `POST` | `/api/auth/login` | ❌ | User login |
+| `GET` | `/api/auth/me` | ✅ | Get current user |
+| `GET` | `/api/admin/users` | ✅ (Admin) | Get all users |
 
 ### 📥 Contoh Request
 
@@ -209,23 +232,23 @@ Frontend akan berjalan di: `http://localhost:5173`
 
 ---
 
-## 🎨 Fitur UI/UX
+## 🎨 Premium UI/UX
 
 ### ✨ Modern Design
-- **Gradient Backgrounds** - Blue to purple theme
-- **Glassmorphism Effects** - Modern glass-like elements
-- **Smooth Animations** - Fluid transitions dan hover effects
-- **Responsive Layout** - Mobile-first design approach
+- **Glassmorphism Effects** - Premium glass-like elements
+- **Gradient Themes** - Blue-purple color schemes
+- **Blur Overlays** - Freemium model implementation
+- **Smooth Animations** - 60fps transitions
 
-### 🎯 User Experience
+### 🎯 Enhanced UX
 - **Collapsible Sidebar** - Space-efficient navigation
-- **Real-time Feedback** - Instant calculation results
-- **Progress Indicators** - Visual feedback untuk input
-- **Toast Notifications** - User-friendly alerts
+- **Auth Integration** - Seamless login/register flow
+- **Toast Notifications** - Real-time user feedback
+- **Loading States** - Professional loading indicators
 
-### 📱 Responsive Features
-- **Mobile Optimized** - Touch-friendly interface
-- **Tablet Support** - Adaptive grid layouts
+### 📱 Responsive Design
+- **Mobile First** - Touch-optimized interface
+- **Tablet Support** - Adaptive layouts
 - **Desktop Enhanced** - Full-featured experience
 
 ---
@@ -238,16 +261,22 @@ Frontend akan berjalan di: `http://localhost:5173`
 SPK_MAUT/
 ├── backend/
 │   ├── app.py              # FastAPI main application
+│   ├── auth.py             # Authentication logic
+│   ├── database.py         # Database operations
+│   ├── maut.py             # MAUT calculation engine
 │   ├── requirements.txt    # Python dependencies
-│   └── models/            # Data models
+│   └── spk_maut.db         # SQLite database
 ├── frontend/
 │   ├── src/
-│   │   ├── components/    # React components
-│   │   ├── App.jsx       # Main application
-│   │   └── index.css     # Tailwind styles
-│   ├── package.json      # Node dependencies
-│   └── vite.config.js    # Vite configuration
-└── README.md
+│   │   ├── components/     # Reusable components
+│   │   ├── pages/          # Page components
+│   │   ├── context/        # React context (Auth)
+│   │   ├── App.jsx         # Main application
+│   │   └── index.css       # Tailwind styles
+│   ├── package.json        # Node dependencies
+│   └── vite.config.js      # Vite configuration
+├── .gitignore              # Git ignore rules
+└── README.md               # Documentation
 ```
 
 ### 🛠️ Build untuk Production
@@ -262,6 +291,20 @@ cd backend
 pip install gunicorn
 gunicorn app:app -w 4 -k uvicorn.workers.UvicornWorker
 ```
+
+---
+
+## 🚀 Demo Accounts
+
+### 👑 Administrator
+- **Email**: admin@spkmaut.com
+- **Password**: admin123
+- **Access**: Full system access + user management
+
+### 👤 Test User
+- **Register**: Create your own account
+- **Features**: Full access to all user features
+- **Data**: Personal history and calculations
 
 ---
 
@@ -286,7 +329,7 @@ Bebas digunakan untuk tujuan **edukasi** dan **pengembangan**.
 
 ## 👨‍💻 Author
 
-**Dibuat dengan ❤️ untuk pembelajaran SPK dan implementasi metode MAUT**
+**Dibuat dengan ❤️ untuk pembelajaran SPK Universal dan implementasi Authentication System**
 
 <div align="center">
 
@@ -294,5 +337,8 @@ Bebas digunakan untuk tujuan **edukasi** dan **pengembangan**.
 
 ![Made with Love](https://img.shields.io/badge/Made%20with-❤️-red?style=for-the-badge)
 ![Open Source](https://img.shields.io/badge/Open%20Source-💚-green?style=for-the-badge)
+![University Project](https://img.shields.io/badge/University-Project-blue?style=for-the-badge)
+
+**Repository**: https://github.com/WiMProject/spkmaut
 
 </div>
