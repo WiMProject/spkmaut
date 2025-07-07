@@ -3,6 +3,7 @@ import HomePage from "./pages/HomePage";
 import CalculatePage from "./pages/CalculatePage";
 import CriteriaPage from "./pages/CriteriaPage";
 import HistoryPage from "./pages/HistoryPage";
+import AdminPage from "./pages/AdminPage";
 import AboutPage from "./pages/AboutPage";
 import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -264,6 +265,7 @@ function AppContent() {
             { id: "calculate", label: "Kalkulasi", icon: "🧮", color: "from-indigo-400 to-purple-500", desc: "Hitung MAUT" },
             { id: "criteria", label: "Kriteria", icon: "⚙️", color: "from-purple-400 to-pink-500", desc: "Pengaturan" },
             { id: "history", label: "Riwayat", icon: "📊", color: "from-blue-500 to-indigo-600", desc: "Data historis" },
+            ...(isAdmin() ? [{ id: "admin", label: "Admin", icon: "👑", color: "from-red-500 to-pink-600", desc: "Admin Panel" }] : []),
             { id: "about", label: "Tentang", icon: "ℹ️", color: "from-indigo-500 to-purple-600", desc: "Informasi" }
           ].map(tab => (
             <button
@@ -403,6 +405,13 @@ function AppContent() {
                 confirmDelete={confirmDelete}
                 isLoggedIn={isLoggedIn()}
                 onLoginClick={() => setShowLogin(true)}
+              />
+            )}
+
+            {/* Tab Admin */}
+            {activeTab === "admin" && isAdmin() && (
+              <AdminPage 
+                showToast={showToast}
               />
             )}
 

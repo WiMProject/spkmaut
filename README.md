@@ -27,7 +27,7 @@ Aplikasi web modern yang mengimplementasikan metode **MAUT (Multi-Attribute Util
 - 📈 **Real-time Calculation** - Perhitungan MAUT dengan validasi input
 - 🔒 **Freemium Model** - Guest dapat kalkulasi, hasil di-blur tanpa login
 - 💾 **Protected History** - Riwayat kalkulasi hanya untuk user yang login
-- 👑 **Admin Panel** - User management untuk administrator
+- 👑 **Admin Panel** - Complete user management dengan statistics dashboard
 
 ---
 
@@ -46,6 +46,8 @@ Aplikasi web modern yang mengimplementasikan metode **MAUT (Multi-Attribute Util
 - **SQLite Database** - Local data storage
 - **Password Hashing** - SHA256 security
 - **CORS Middleware** - Cross-origin support
+- **Admin Panel API** - Complete user management system
+- **Statistics Engine** - Real-time system monitoring
 
 </td>
 <td align="center" width="50%">
@@ -58,6 +60,9 @@ Aplikasi web modern yang mengimplementasikan metode **MAUT (Multi-Attribute Util
 - **Local Storage** - Token persistence
 - **Responsive Design** - Mobile-first approach
 - **Glassmorphism UI** - Modern design effects
+- **Admin Dashboard** - Complete user management interface
+- **Real-time Statistics** - Live system monitoring cards
+- **Modal Components** - Professional CRUD operations
 
 </td>
 </tr>
@@ -176,6 +181,13 @@ Frontend akan berjalan di: `http://localhost:5173`
 - **Real-time Preview**: Instant feedback on criteria changes
 - **Export/Import**: Save and load criteria configurations
 
+### 👑 Admin Panel Features
+- **User Management**: Complete CRUD operations for user accounts
+- **System Statistics**: Real-time monitoring of system usage
+- **Role Management**: Toggle between user and admin roles
+- **Data Analytics**: Track total users, calculations, and activity
+- **Security Controls**: Admin-only access with JWT protection
+
 ---
 
 ## 📊 API Endpoints
@@ -194,6 +206,11 @@ Frontend akan berjalan di: `http://localhost:5173`
 | `POST` | `/api/auth/login` | ❌ | User login |
 | `GET` | `/api/auth/me` | ✅ | Get current user |
 | `GET` | `/api/admin/users` | ✅ (Admin) | Get all users |
+| `POST` | `/api/admin/users` | ✅ (Admin) | Create new user |
+| `PUT` | `/api/admin/users/{id}` | ✅ (Admin) | Update user |
+| `DELETE` | `/api/admin/users/{id}` | ✅ (Admin) | Delete user |
+| `PUT` | `/api/admin/users/{id}/role` | ✅ (Admin) | Change user role |
+| `GET` | `/api/admin/stats` | ✅ (Admin) | System statistics |
 
 ### 📥 Contoh Request
 
@@ -269,14 +286,30 @@ SPK_MAUT/
 ├── frontend/
 │   ├── src/
 │   │   ├── components/     # Reusable components
+│   │   │   ├── BlurOverlay.jsx
+│   │   │   ├── LoadingSpinner.jsx
+│   │   │   ├── Modal.jsx
+│   │   │   ├── ProgressBar.jsx
+│   │   │   └── Toast.jsx
 │   │   ├── pages/          # Page components
+│   │   │   ├── HomePage.jsx
+│   │   │   ├── CalculatePage.jsx
+│   │   │   ├── CriteriaPage.jsx
+│   │   │   ├── HistoryPage.jsx
+│   │   │   ├── AdminPage.jsx    # Admin panel
+│   │   │   ├── LoginPage.jsx
+│   │   │   ├── RegisterPage.jsx
+│   │   │   └── AboutPage.jsx
 │   │   ├── context/        # React context (Auth)
+│   │   │   └── AuthContext.jsx
 │   │   ├── App.jsx         # Main application
 │   │   └── index.css       # Tailwind styles
 │   ├── package.json        # Node dependencies
 │   └── vite.config.js      # Vite configuration
 ├── .gitignore              # Git ignore rules
-└── README.md               # Documentation
+├── README.md               # Main documentation
+├── PRESENTATION.md         # Presentation material
+└── DOCUMENTATION.md        # Technical documentation
 ```
 
 ### 🛠️ Build untuk Production
@@ -299,12 +332,14 @@ gunicorn app:app -w 4 -k uvicorn.workers.UvicornWorker
 ### 👑 Administrator
 - **Email**: admin@spkmaut.com
 - **Password**: admin123
-- **Access**: Full system access + user management
+- **Access**: Full system access + user management + admin panel
+- **Features**: User CRUD operations, system statistics, global monitoring
 
 ### 👤 Test User
 - **Register**: Create your own account
 - **Features**: Full access to all user features
 - **Data**: Personal history and calculations
+- **Limitations**: No admin panel access
 
 ---
 

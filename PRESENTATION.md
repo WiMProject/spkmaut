@@ -187,6 +187,7 @@ Dimana:
 - **Real-time Validation**: Validasi input sesuai rentang kriteria
 - **Progress Indicators**: Visual feedback untuk setiap input
 - **Instant Results**: Hasil perhitungan MAUT real-time
+- **Freemium Model**: Guest dapat kalkulasi, hasil di-blur
 
 ### ⚙️ Setting Kriteria
 - **Flexible Configuration**: Custom min/max values
@@ -197,8 +198,15 @@ Dimana:
 ### 📊 Riwayat & Results
 - **Protected Access**: Login required untuk melihat hasil
 - **History Management**: Simpan dan kelola kalkulasi
-- **Export Options**: Download hasil dalam berbagai format
+- **Blur Overlay**: Guest users melihat preview blur
 - **Audit Trail**: Log semua aktivitas user
+
+### 👑 Admin Panel
+- **User Management**: Complete CRUD operations
+- **Statistics Dashboard**: Real-time system monitoring
+- **Role Management**: Toggle user/admin roles
+- **System Analytics**: Track usage and activity
+- **Security Controls**: Admin-only access protection
 
 ---
 
@@ -239,6 +247,8 @@ Dimana:
 3. ✅ **Authentication**: Keamanan data terjamin dengan JWT
 4. ✅ **User-Friendly**: Interface intuitif dan responsive
 5. ✅ **Scientific Ranking**: Hasil berdasarkan perhitungan ilmiah
+6. ✅ **Admin Panel**: Complete user management dengan statistics
+7. ✅ **Freemium Model**: Guest access dengan premium features
 
 ### 📊 Studi Kasus: Pemilihan Ketua BEM
 **Input**: 4 Kandidat dengan 8 kriteria
@@ -267,6 +277,8 @@ Dimana:
 3. **Sistem authentication** meningkatkan keamanan dan akuntabilitas
 4. **Interface modern** meningkatkan user experience dan adoption
 5. **Hasil objektif** meningkatkan kepercayaan terhadap proses pemilihan
+6. **Admin panel** memberikan kontrol penuh untuk administrator
+7. **Freemium model** meningkatkan accessibility dan user adoption
 
 ### 💡 Saran Pengembangan
 1. **Machine Learning**: Implementasi AI untuk prediksi performa
