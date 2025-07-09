@@ -6,9 +6,9 @@
 ## 👥 TIM PENGEMBANG
 **Kelompok [Nomor]**
 - **Anggota 1**: [Wildan Miladji] - Project Manager & Backend Developer
-- **Anggota 2**: [Nama] - Frontend Developer & UI/UX Designer  
-- **Anggota 3**: [Nama] - Database Administrator & System Analyst
-- **Anggota 4**: [Nama] - Quality Assurance & Documentation
+- **Anggota 2**: [Ridwan Gunawan] - Frontend Developer & UI/UX Designer  
+- **Anggota 3**: [Thoriq Faraj] - Database Administrator & System Analyst
+- **Anggota 4**: [M Alif Rizqie] - Quality Assurance & Documentation
 
 ---
 
