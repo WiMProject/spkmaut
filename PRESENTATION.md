@@ -4,7 +4,7 @@
 ---
 
 ## 👥 TIM PENGEMBANG
-**Kelompok [Nomor]**
+**Kelompok 6**
 - **Anggota 1**: [Wildan Miladji] - Project Manager & Backend Developer
 - **Anggota 2**: [Ridzwan Gunawan] - Frontend Developer & UI/UX Designer  
 - **Anggota 3**: [Thoriq Faraj] - Database Administrator & System Analyst
@@ -144,7 +144,38 @@ Dimana:
 - **Faktor Negatif (15%)**: Ketidakhadiran dan lama studi
 
 ---
+#### 🗄️ Database Design
+```sql
+-- Users Table
+CREATE TABLE users (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    email TEXT UNIQUE NOT NULL,
+    password TEXT NOT NULL,
+    role TEXT DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 
+-- Criteria Table
+CREATE TABLE criteria (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    weight REAL NOT NULL,
+    type TEXT NOT NULL CHECK(type IN ('benefit', 'cost')),
+    min_value REAL DEFAULT 0,
+    max_value REAL DEFAULT 100,
+    decimal BOOLEAN DEFAULT 1
+);
+
+-- Calculations Table
+CREATE TABLE calculations (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    title TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    candidates_data TEXT NOT NULL,
+    results_data TEXT NOT NULL
+);
+```
 ## 💻 IMPLEMENTASI SISTEM
 
 ### 🏗️ Arsitektur Sistem
