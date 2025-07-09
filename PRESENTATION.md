@@ -6,9 +6,9 @@
 ## 👥 TIM PENGEMBANG
 **Kelompok [Nomor]**
 - **Anggota 1**: [Wildan Miladji] - Project Manager & Backend Developer
-- **Anggota 2**: [Ridwan Gunawan] - Frontend Developer & UI/UX Designer  
+- **Anggota 2**: [Ridzwan Gunawan] - Frontend Developer & UI/UX Designer  
 - **Anggota 3**: [Thoriq Faraj] - Database Administrator & System Analyst
-- **Anggota 4**: [M Alif Rizqie] - Quality Assurance & Documentation
+- **Anggota 4**: [M Alif Rizqie] - QA QC
 
 ---
 
@@ -133,8 +133,8 @@ Dimana:
 | 4 | **Visi & Misi** | Benefit | 0-100 | 15% | Kualitas program kerja |
 | 5 | **Inisiatif & Proaktif** | Benefit | 0-100 | 10% | Kemampuan berinisiatif |
 | 6 | **Problem Solving** | Benefit | 0-100 | 10% | Penyelesaian konflik |
-| 7 | **Ketidakhadiran** | Cost | 0-∞ | 10% | Tingkat absensi |
-| 8 | **Lama Studi** | Cost | 3.5-7.0 | 5% | Efisiensi masa studi |
+| 7 | **Ketidakhadiran** | Cost | 0-365 | 10% | Tingkat absensi |
+| 8 | **Anti Kritik** | Cost | 1-10 | 5% | Efisiensi masa studi |
 
 ### 🎯 Justifikasi Pembobotan
 - **Pengalaman Organisasi (20%)**: Faktor terpenting untuk kepemimpinan
