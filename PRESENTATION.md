@@ -5,7 +5,7 @@
 
 ## 👥 TIM PENGEMBANG
 **Kelompok [Nomor]**
-- **Anggota 1**: [Nama] - Project Manager & Backend Developer
+- **Anggota 1**: [Wildan Miladji] - Project Manager & Backend Developer
 - **Anggota 2**: [Nama] - Frontend Developer & UI/UX Designer  
 - **Anggota 3**: [Nama] - Database Administrator & System Analyst
 - **Anggota 4**: [Nama] - Quality Assurance & Documentation
